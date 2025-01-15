@@ -13,7 +13,7 @@ public:
     // Constructor to initialize the sparse matrix
     SparseMatrix(int r, int c) : rows(r), cols(c) {}
 
-    // Function to insert a non-zero element
+    // Method to insert a non-zero element
     void insertElement(int row, int col, int value) {
         if (value == 0) {
             cout << "Cannot insert a zero value." << endl;
@@ -27,16 +27,16 @@ public:
         elements.push_back({row, col, value});
     }
 
-    // Function to display the sparse matrix
-    void displayMatrix() {
+    // Method to display the sparse matrix
+    void printMatrix() {
         cout << "Sparse Matrix Representation (Row, Column, Value):" << endl;
         for (const auto& element : elements) {
             cout << "(" << element[0] << ", " << element[1] << ", " << element[2] << ")" << endl;
         }
     }
 
-    // Function to display the dense matrix form
-    void displayDense() {
+    // Method to print the dense matrix form
+    void printDense() {
         cout << "Dense Matrix:" << endl;
         for (int i = 0; i < rows; ++i) {
             for (int j = 0; j < cols; ++j) {
@@ -48,13 +48,15 @@ public:
                         break;
                     }
                 }
-                if (!found)
+                if (!found) {
                     cout << "0 ";
+                }
             }
             cout << endl;
         }
     }
 };
+
 
 int main() {
 
@@ -82,9 +84,9 @@ int main() {
 
     // Display the sparse matrix and its dense form
     cout << endl;
-    matrix.displayMatrix();
+    matrix.printMatrix();
     cout << endl;
-    matrix.displayDense();
+    matrix.printDense();
 
     return 0;
 }
